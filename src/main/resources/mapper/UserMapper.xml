@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgl.masterslave.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.zgl.masterslave.model.User">
+		<!--
+		  WARNING - @mbg.generated
+		-->
+		<id column="id" jdbcType="VARCHAR" property="id"/>
+		<result column="user_name" jdbcType="VARCHAR" property="userName"/>
+		<result column="password" jdbcType="VARCHAR" property="password"/>
+		<result column="name" jdbcType="VARCHAR" property="name"/>
+		<result column="age" jdbcType="INTEGER" property="age"/>
+		<result column="birthday" jdbcType="DATE" property="birthday"/>
+		<result column="sex" jdbcType="VARCHAR" property="sex"/>
+	</resultMap>
+
+	<insert id="insertOne" parameterType="com.zgl.masterslave.model.User">
+		insert into tb_user(id,user_name,password,name,age,birthday,sex) values(#{id},#{userName},#{password},#{name},#{age},#{birthday},#{sex})
+	</insert>
+
+	<select id="selectOneById" parameterType="string" resultType="com.zgl.masterslave.model.User">
+		select * from tb_user where id=#{id}
+	</select>
+</mapper>
